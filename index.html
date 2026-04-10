@@ -1,0 +1,3522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-04JKVYTYF3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-04JKVYTYF3');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050505">
+<title>Matt Hasson — Engineering Leader & AI-Augmented Builder</title>
+<meta name="description" content="Portfolio of Matt Hasson — Full-stack engineer shipping production apps at 10x speed with AI augmentation. 8 production projects. From mobile to infra.">
+<meta property="og:title" content="Matt Hasson — Engineering Leader & AI-Augmented Builder">
+<meta property="og:description" content="8 production projects. AI-augmented development. From mobile to infrastructure.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://matthasson.com">
+<meta property="og:image" content="https://matthasson.com/og-image.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Matt Hasson — Engineering Leader & AI-Augmented Builder">
+<meta name="twitter:description" content="8 production projects. AI-augmented development. From mobile to infrastructure.">
+<link rel="canonical" href="https://matthasson.com">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Matt Hasson",
+  "jobTitle": "Engineering Leader & AI-Augmented Builder",
+  "url": "https://matthasson.com",
+  "sameAs": [
+    "https://github.com/MattDevOps",
+    "https://www.linkedin.com/in/matthew-hasson/"
+  ],
+  "knowsAbout": ["Full-Stack Development", "AI/ML", "React", "Next.js", "Python", "DevOps", "Mobile Development"],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Jerusalem",
+    "addressCountry": "IL"
+  }
+}
+</script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --green: #76B900;
+  --green-dim: #4a7a00;
+  --green-glow: rgba(118, 185, 0, 0.3);
+  --cyan: #00d4aa;
+  --cyan-dim: #007a62;
+  --cyan-glow: rgba(0, 212, 170, 0.25);
+  --bg-deep: #050505;
+  --bg-card: rgba(255,255,255,0.03);
+  --bg-card-hover: rgba(255,255,255,0.06);
+  --border: rgba(255,255,255,0.06);
+  --border-hover: rgba(118, 185, 0, 0.3);
+  --text: #e8e8e8;
+  --text-dim: #888;
+  --text-muted: #555;
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--bg-deep);
+  color: var(--text);
+  font-family: 'Space Grotesk', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Keyboard focus outlines */
+:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: rgba(118,185,0,0.25);
+  color: #fff;
+}
+
+body {
+  overflow-x: hidden;
+  background: var(--bg-deep);
+}
+
+/* ═══ NOISE TEXTURE OVERLAY ═══ */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ═══ GRID LINES (subtle) ═══ */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(118,185,0,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(118,185,0,0.02) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+/* ═══ NAVIGATION ═══ */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 0 40px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(5,5,5,0.7);
+  backdrop-filter: blur(20px) saturate(1.2);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s;
+}
+
+nav.scrolled { background: rgba(5,5,5,0.92); }
+
+.nav-logo {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--green);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.nav-logo span { color: var(--text-dim); }
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-dim);
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: color 0.25s;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--green);
+  transition: width 0.3s;
+}
+
+.nav-links a:hover { color: var(--green); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-available {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--green);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border: 1px solid rgba(118,185,0,0.2);
+  border-radius: 100px;
+  background: rgba(118,185,0,0.05);
+  white-space: nowrap;
+}
+
+.nav-mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  position: relative;
+  z-index: 110;
+}
+
+.nav-mobile-toggle span {
+  display: block;
+  width: 20px;
+  height: 1.5px;
+  background: var(--text-dim);
+  position: absolute;
+  left: 6px;
+  transition: all 0.3s;
+}
+
+.nav-mobile-toggle span:nth-child(1) { top: 10px; }
+.nav-mobile-toggle span:nth-child(2) { top: 15px; }
+.nav-mobile-toggle span:nth-child(3) { top: 20px; }
+
+.nav-mobile-toggle.active span:nth-child(1) {
+  top: 15px;
+  transform: rotate(45deg);
+  background: var(--green);
+}
+.nav-mobile-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.nav-mobile-toggle.active span:nth-child(3) {
+  top: 15px;
+  transform: rotate(-45deg);
+  background: var(--green);
+}
+
+/* ═══ HERO ═══ */
+#hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 120px 24px 80px;
+  overflow: hidden;
+}
+
+#particle-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--green);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  background: rgba(118,185,0,0.05);
+  opacity: 0;
+  animation: fadeUp 0.8s 0.2s forwards;
+}
+
+.hero-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 var(--green-glow); }
+  50% { opacity: 0.7; box-shadow: 0 0 0 6px transparent; }
+}
+
+.hero-name {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(60px, 10vw, 130px);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -3px;
+  color: var(--text);
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.35s forwards;
+}
+
+.hero-name em {
+  font-style: italic;
+  color: var(--green);
+  text-shadow: 0 0 80px var(--green-glow);
+}
+
+.hero-title {
+  font-size: clamp(16px, 2.2vw, 22px);
+  font-weight: 400;
+  color: var(--text-dim);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto 48px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.5s forwards;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.65s forwards;
+}
+
+.hero-stat {
+  text-align: center;
+}
+
+.hero-stat-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--green);
+  line-height: 1;
+}
+
+.hero-stat-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 8px;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.9s forwards;
+}
+
+.scroll-indicator span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--green), transparent);
+  animation: scroll-pulse 2s infinite;
+}
+
+@keyframes scroll-pulse {
+  0% { opacity: 0; transform: scaleY(0); transform-origin: top; }
+  50% { opacity: 1; transform: scaleY(1); }
+  100% { opacity: 0; transform: scaleY(1); transform-origin: top; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══ SECTIONS ═══ */
+section {
+  position: relative;
+  z-index: 1;
+  padding: 120px 24px;
+}
+
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--green);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 400;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.section-subtitle {
+  font-size: 17px;
+  color: var(--text-dim);
+  line-height: 1.7;
+  max-width: 640px;
+}
+
+/* ═══ ABOUT ═══ */
+#about .about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  margin-top: 64px;
+}
+
+.about-text {
+  font-size: 18px;
+  color: var(--text-dim);
+  line-height: 1.8;
+}
+
+.about-text strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.about-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.about-metric {
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  transition: all 0.3s;
+}
+
+.about-metric:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
+}
+
+.about-metric-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--green);
+  margin-bottom: 4px;
+}
+
+.about-metric-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+/* ═══ EXPERIENCE ═══ */
+#experience {
+  border-top: 1px solid var(--border);
+}
+
+.experience-progression {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.experience-role-block {
+  padding: 32px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  transition: all 0.3s;
+}
+
+.experience-role-block:first-child {
+  border-radius: var(--radius) var(--radius) 0 0;
+  border-bottom: none;
+}
+
+.experience-role-block:last-child {
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+
+.experience-role-block:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
+}
+
+.experience-dates {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--green);
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.experience-role {
+  font-size: 18px;
+  color: var(--text);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.experience-desc {
+  font-size: 15px;
+  color: var(--text-dim);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.experience-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+
+/* ═══ PROJECTS ═══ */
+.projects-grid {
+  display: grid;
+  gap: 32px;
+  margin-top: 64px;
+}
+
+.project-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  transform: translateY(0);
+}
+
+.project-card:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 24px 80px -16px rgba(118,185,0,0.08);
+}
+
+.project-card.reverse { direction: rtl; }
+.project-card.reverse > * { direction: ltr; }
+
+.project-visual {
+  position: relative;
+  aspect-ratio: 16/11;
+  overflow: hidden;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  display: block;
+}
+
+.project-card:hover .project-visual img {
+  transform: scale(1.05);
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.carousel-slide.active { opacity: 1; }
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 3;
+}
+
+.carousel-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s;
+  padding: 0;
+}
+
+.carousel-dot.active {
+  background: var(--green);
+  box-shadow: 0 0 8px var(--green-glow);
+  width: 18px;
+  border-radius: 3px;
+}
+
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 14px;
+}
+
+.project-visual:hover .carousel-nav { opacity: 1; }
+.carousel-nav.prev { left: 8px; }
+.carousel-nav.next { right: 8px; }
+
+/* Icon placeholder for projects without screenshots */
+.project-icon-visual {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(118,185,0,0.05) 0%, rgba(0,212,170,0.05) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.project-icon-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, var(--green-glow), transparent 60%);
+  opacity: 0.3;
+}
+
+.project-icon-visual svg {
+  width: 80px;
+  height: 80px;
+  color: var(--green);
+  opacity: 0.6;
+  position: relative;
+  z-index: 1;
+}
+
+.project-info {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.project-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.project-name {
+  font-family: 'Instrument Serif', serif;
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+
+.project-tagline {
+  font-size: 14px;
+  color: var(--cyan);
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.project-desc {
+  font-size: 15px;
+  color: var(--text-dim);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.project-highlights {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--green);
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+  padding: 10px 14px;
+  background: rgba(118,185,0,0.05);
+  border-radius: var(--radius-sm);
+  border-left: 2px solid var(--green);
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.tech-pill {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  background: rgba(255,255,255,0.02);
+  letter-spacing: 0.3px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.tech-pill:hover {
+  border-color: var(--green);
+  color: var(--green);
+  background: rgba(118,185,0,0.05);
+  box-shadow: 0 0 12px rgba(118,185,0,0.08);
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--green);
+  text-decoration: none;
+  transition: gap 0.25s;
+}
+
+.project-link:hover {
+  gap: 12px;
+  text-shadow: 0 0 16px rgba(118,185,0,0.3);
+}
+
+.project-link svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ═══ TECH STACK ═══ */
+#stack {
+  border-top: 1px solid var(--border);
+}
+
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  margin-top: 64px;
+}
+
+.stack-category {
+  padding: 32px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  transition: all 0.3s;
+}
+
+.stack-category:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
+}
+
+.stack-category-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  font-size: 18px;
+}
+
+.stack-category-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.stack-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stack-item {
+  font-size: 14px;
+  color: var(--text-dim);
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  transition: color 0.2s;
+}
+
+.stack-item:hover { color: var(--text); }
+.stack-item:last-child { border-bottom: none; }
+
+/* ═══ CASE STUDIES ═══ */
+.case-studies-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.case-study {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.case-study:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
+}
+
+.case-study-header {
+  padding: 32px 32px 0;
+}
+
+.case-study-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--cyan);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.case-study-name {
+  font-family: 'Instrument Serif', serif;
+  font-size: 28px;
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+
+.case-study-tagline {
+  font-size: 14px;
+  color: var(--text-dim);
+  margin-bottom: 24px;
+}
+
+.case-study-body {
+  padding: 0 32px 32px;
+}
+
+.case-study-section {
+  margin-bottom: 20px;
+}
+
+.case-study-section:last-child {
+  margin-bottom: 0;
+}
+
+.case-study-section-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--green);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.case-study-section p {
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 1.7;
+}
+
+.case-study-metrics {
+  display: flex;
+  gap: 24px;
+  padding: 20px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin: 20px 0;
+}
+
+.case-study-metric {
+  text-align: center;
+  flex: 1;
+}
+
+.case-study-metric-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 20px;
+  color: var(--green);
+  font-weight: 600;
+}
+
+.case-study-metric-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+
+/* ═══ WRITING ═══ */
+.writing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.writing-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  padding: 32px;
+  transition: all 0.3s;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.writing-card:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+}
+
+.writing-card-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--cyan);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.writing-card-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.writing-card-excerpt {
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 1.7;
+}
+
+.writing-card-date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 16px;
+}
+
+@media (max-width: 768px) {
+  .case-studies-grid { grid-template-columns: 1fr; }
+  .writing-grid { grid-template-columns: 1fr; }
+}
+
+/* ═══ CONTACT ═══ */
+#contact {
+  position: relative;
+  border-top: 1px solid var(--border);
+  overflow: hidden;
+}
+
+#contact-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+#contact .section-container {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  margin-top: 64px;
+  align-items: start;
+}
+
+.contact-text {
+  font-size: 17px;
+  color: var(--text-dim);
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+.contact-items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  transition: all 0.3s;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.contact-item:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -8px rgba(118,185,0,0.06);
+}
+
+.contact-item-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: rgba(118,185,0,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-item-icon svg {
+  width: 18px;
+  height: 18px;
+  color: var(--green);
+}
+
+.contact-item-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.contact-item-value {
+  font-size: 15px;
+  color: var(--text);
+}
+
+/* ═══ CONTACT FORM ═══ */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.contact-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contact-form-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.contact-form-input,
+.contact-form-textarea {
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  color: var(--text);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 15px;
+  transition: border-color 0.3s, background 0.3s;
+  outline: none;
+}
+
+.contact-form-input:focus,
+.contact-form-textarea:focus {
+  border-color: var(--green);
+  background: var(--bg-card-hover);
+}
+
+.contact-form-input::placeholder,
+.contact-form-textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.contact-form-textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.6;
+}
+
+.contact-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.contact-form-submit {
+  padding: 14px 32px;
+  border: 1px solid var(--green);
+  border-radius: var(--radius-sm);
+  background: rgba(118,185,0,0.08);
+  color: var(--green);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 8px;
+}
+
+.contact-form-submit:hover {
+  background: rgba(118,185,0,0.15);
+  box-shadow: 0 0 20px rgba(118,185,0,0.1);
+}
+
+.contact-form-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.contact-form-status {
+  font-size: 14px;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  display: none;
+}
+
+.contact-form-status.success {
+  display: block;
+  color: var(--green);
+  background: rgba(118,185,0,0.08);
+  border: 1px solid rgba(118,185,0,0.2);
+}
+
+.contact-form-status.error {
+  display: block;
+  color: #ff6b6b;
+  background: rgba(255,107,107,0.08);
+  border: 1px solid rgba(255,107,107,0.2);
+}
+
+.contact-form-input:invalid:not(:placeholder-shown),
+.contact-form-textarea:invalid:not(:placeholder-shown) {
+  border-color: rgba(255,107,107,0.4);
+}
+
+.contact-form-input:valid:not(:placeholder-shown),
+.contact-form-textarea:valid:not(:placeholder-shown) {
+  border-color: rgba(118,185,0,0.3);
+}
+
+.contact-form-submit .spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(118,185,0,0.3);
+  border-top-color: var(--green);
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 768px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+  .contact-form-row { grid-template-columns: 1fr; }
+}
+
+/* ═══ SNAKE GAME ═══ */
+.snake-trigger {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 998;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(12px);
+  color: var(--text-dim);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  line-height: 1;
+}
+
+.snake-trigger:hover {
+  border-color: var(--green);
+  color: var(--green);
+  box-shadow: 0 0 16px rgba(118, 185, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+  .snake-trigger { display: none; }
+  .snake-overlay { display: none !important; }
+}
+
+.snake-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.snake-overlay.open {
+  display: flex;
+}
+
+.snake-modal {
+  background: var(--bg-deep);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+}
+
+.snake-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.snake-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--green);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.snake-score-display {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+.snake-score-display span {
+  color: var(--green);
+  font-weight: 600;
+}
+
+.snake-close {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-dim);
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  line-height: 1;
+}
+
+.snake-close:hover {
+  border-color: #ff6b6b;
+  color: #ff6b6b;
+}
+
+#snake-canvas {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  display: block;
+}
+
+.snake-instructions {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.snake-start-msg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--green);
+  text-align: center;
+  pointer-events: none;
+  line-height: 2;
+  letter-spacing: 0.5px;
+}
+
+.snake-touch-controls {
+  display: none;
+  grid-template-columns: repeat(3, 56px);
+  grid-template-rows: repeat(3, 56px);
+  gap: 4px;
+  justify-content: center;
+}
+
+.snake-touch-btn {
+  width: 56px;
+  height: 56px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: rgba(118, 185, 0, 0.06);
+  color: var(--green);
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  user-select: none;
+}
+
+.snake-touch-btn:active {
+  background: rgba(118, 185, 0, 0.2);
+  border-color: var(--green);
+}
+
+.snake-touch-spacer {
+  width: 56px;
+  height: 56px;
+}
+
+/* ═══ SCORE GAME (desktop only) ═══ */
+#score-widget {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.score-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: rgba(10, 10, 10, 0.85);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  backdrop-filter: blur(12px);
+  pointer-events: auto;
+  cursor: default;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.score-box.pulse {
+  border-color: var(--green);
+  box-shadow: 0 0 16px rgba(118, 185, 0, 0.15);
+}
+
+.score-icon {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.score-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.score-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--green);
+  min-width: 36px;
+  text-align: right;
+}
+
+.score-bar {
+  width: 100%;
+  height: 3px;
+  background: rgba(118, 185, 0, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.score-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--green);
+  border-radius: 2px;
+  transition: width 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.score-rank {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  text-align: right;
+}
+
+.score-popup {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--green);
+  padding: 6px 12px;
+  background: rgba(10, 10, 10, 0.85);
+  border: 1px solid rgba(118, 185, 0, 0.3);
+  border-radius: var(--radius-sm);
+  backdrop-filter: blur(8px);
+  white-space: nowrap;
+  animation: scorePopup 1.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  pointer-events: none;
+}
+
+@keyframes scorePopup {
+  0% { opacity: 0; transform: translateY(10px) scale(0.9); }
+  15% { opacity: 1; transform: translateY(0) scale(1); }
+  70% { opacity: 1; transform: translateY(-10px); }
+  100% { opacity: 0; transform: translateY(-30px); }
+}
+
+@media (max-width: 768px) {
+  #score-widget { display: none !important; }
+}
+
+/* ═══ FOOTER ═══ */
+footer {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid var(--border);
+  padding: 48px 24px;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-links a {
+  font-size: 13px;
+  color: var(--text-dim);
+  text-decoration: none;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.footer-links a:hover { color: var(--green); }
+
+.footer-links a svg {
+  width: 16px;
+  height: 16px;
+}
+
+.footer-note {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+/* ═══ SCROLL REVEAL ═══ */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1),
+              transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.35s; }
+
+/* ═══ COUNTER ANIMATION ═══ */
+.counter[data-target] {
+  display: inline-block;
+}
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 1024px) {
+  .stack-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .nav-mobile-toggle { display: block; }
+  .nav-available { display: none; }
+
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: rgba(5,5,5,0.97);
+    backdrop-filter: blur(24px);
+    padding: 32px 24px;
+    gap: 8px;
+    border-bottom: 1px solid var(--border);
+    animation: mobileNavIn 0.25s ease-out;
+  }
+
+  .nav-links.open li {
+    padding: 8px 0;
+  }
+
+  .nav-links.open a {
+    font-size: 15px;
+    letter-spacing: 1px;
+  }
+
+  @keyframes mobileNavIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  section { padding: 80px 20px; }
+
+  .hero-stats { gap: 24px; }
+  .hero-stat-num { font-size: 28px; }
+
+  #about .about-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .project-card {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card.reverse { direction: ltr; }
+
+  .project-visual { aspect-ratio: 16/10; }
+
+  .project-info { padding: 28px; }
+  .project-name { font-size: 26px; }
+
+  .stack-grid { grid-template-columns: 1fr; }
+
+  .footer-inner {
+    flex-direction: column;
+    gap: 24px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-stats {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .about-metrics {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAVIGATION ═══ -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo" style="text-decoration:none">MATTHASSON<span>.COM</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#stack">Stack</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="/resume" target="_blank" rel="noopener">Resume</a></li>
+    <li><a href="https://github.com/MattDevOps" target="_blank" rel="noopener">GitHub</a></li>
+    <li><a href="https://www.linkedin.com/in/matthew-hasson/" target="_blank" rel="noopener">LinkedIn</a></li>
+  </ul>
+  <span class="nav-available">Hasson, Inc.</span>
+  <button class="nav-mobile-toggle" id="navToggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <canvas id="particle-canvas"></canvas>
+  <div class="hero-content">
+    <h1 class="hero-name"><em>Matthew Hasson</em></h1>
+    <p class="hero-title">Engineering Leader &amp; AI-Augmented Builder<br>from CI/CD at scale to shipping production apps solo</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num"><span class="counter" data-target="8">0</span></div>
+        <div class="hero-stat-label">Apps Shipped Solo</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">Yes</div>
+        <div class="hero-stat-label">For Hire</div>
+      </div>
+    </div>
+    <a href="/resume" class="hero-resume-link" style="display:inline-flex;align-items:center;gap:8px;margin-top:24px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--green);text-decoration:none;letter-spacing:1px;text-transform:uppercase;border:1px solid rgba(118,185,0,0.3);padding:10px 20px;border-radius:6px;background:rgba(118,185,0,0.05);transition:all 0.3s;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download Resume
+    </a>
+  </div>
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT ═══ -->
+<section id="about">
+  <div class="section-container">
+    <div class="reveal">
+      <div class="section-label">// About</div>
+      <h2 class="section-title">I build things that<br>people actually use.</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text reveal reveal-delay-1">
+        <p>I spent 4 years at Sonos building CI/CD infrastructure, then started Hasson, Inc. to build and ship my own products. I've shipped 8 production apps since — all live, most with paying users or real clients.</p>
+        <br>
+        <p>Then I left to build my own things. I've shipped 8 production apps since — all solo, all live, most with paying users or real clients. I'm not precious about the stack; I pick whatever ships the product. I use AI as a force multiplier across every phase of development, and it's a core part of how I operate at the speed I do.</p>
+      </div>
+      <div class="about-metrics reveal reveal-delay-2">
+        <div class="about-metric">
+          <div class="about-metric-num"><span class="counter" data-target="8">0</span></div>
+          <div class="about-metric-label">Shipped Apps</div>
+        </div>
+        <div class="about-metric">
+          <div class="about-metric-num">Own</div>
+          <div class="about-metric-label">Company</div>
+        </div>
+        <div class="about-metric">
+          <div class="about-metric-num"><span class="counter" data-target="50">0</span>+</div>
+          <div class="about-metric-label">Technologies Used</div>
+        </div>
+        <div class="about-metric">
+          <div class="about-metric-num">Solo</div>
+          <div class="about-metric-label">Built & Deployed</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EXPERIENCE ═══ -->
+<section id="experience">
+  <div class="section-container">
+    <div class="reveal">
+      <div class="section-label">// Experience</div>
+      <h2 class="section-title">Where I've built.</h2>
+    </div>
+
+    <div class="experience-timeline">
+      <div class="experience-item reveal reveal-delay-1">
+        <div class="experience-dates">2023 — Present</div>
+        <h3 class="experience-company">Hasson, Inc.</h3>
+        <div class="experience-role">Founder & Full-Stack Engineer</div>
+        <p class="experience-desc">Building and shipping production applications end-to-end as an independent software company. Shipped 8 live products across web and mobile — handling architecture, development, payments integration, deployment, and client delivery. Leveraging AI-augmented workflows to operate at startup speed as a solo engineering org.</p>
+        <div class="experience-tech">
+          <span class="tech-pill">React / Next.js</span>
+          <span class="tech-pill">React Native</span>
+          <span class="tech-pill">Flutter</span>
+          <span class="tech-pill">FastAPI</span>
+          <span class="tech-pill">Node.js</span>
+          <span class="tech-pill">PostgreSQL</span>
+          <span class="tech-pill">Stripe / Square</span>
+          <span class="tech-pill">AI-Augmented Dev</span>
+        </div>
+      </div>
+
+      <div class="experience-item reveal reveal-delay-2">
+        <div class="experience-dates">2019 — 2023</div>
+        <h3 class="experience-company">Sonos</h3>
+        <div class="experience-role">Build & Automation Engineer</div>
+        <p class="experience-desc">Designed and maintained CI/CD automation infrastructure for both frontend and backend systems. Built pipelines, tooling, and test automation that kept Sonos shipping reliably at scale across hardware and software releases.</p>
+        <div class="experience-tech">
+          <span class="tech-pill">CI/CD</span>
+          <span class="tech-pill">Build Automation</span>
+          <span class="tech-pill">Frontend Pipelines</span>
+          <span class="tech-pill">Backend Pipelines</span>
+          <span class="tech-pill">Test Automation</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ PROJECTS ═══ -->
+<section id="projects">
+  <div class="section-container">
+    <div class="reveal">
+      <div class="section-label">// Projects</div>
+      <h2 class="section-title">Shipped &amp; deployed.</h2>
+      <p class="section-subtitle">Production applications solving real problems — from financial analytics to mobile habit tracking to business operations.</p>
+    </div>
+
+    <!-- InsightTrader -->
+    <div class="projects-grid">
+      <div class="project-card reveal reveal-delay-1">
+        <div class="project-visual">
+          <div class="carousel-container" data-carousel>
+            <div class="carousel-slide active"><img src="screenshots/insighttrader-dashboard.png" alt="InsightTrader Dashboard" loading="lazy"></div>
+            <div class="carousel-slide"><img src="screenshots/insighttrader-analytics.png" alt="InsightTrader Analytics" loading="lazy"></div>
+            <div class="carousel-slide"><img src="screenshots/insighttrader-calendar.png" alt="InsightTrader Calendar" loading="lazy"></div>
+            <div class="carousel-slide"><img src="screenshots/insighttrader-journal.png" alt="InsightTrader Journal" loading="lazy"></div>
+            <div class="carousel-slide"><img src="screenshots/insighttrader-ai.png" alt="InsightTrader AI Tools" loading="lazy"></div>
+            <div class="carousel-slide"><img src="screenshots/insighttrader-replay.png" alt="InsightTrader Trade Replay" loading="lazy"></div>
+            <button class="carousel-nav prev" aria-label="Previous">‹</button>
+            <button class="carousel-nav next" aria-label="Next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active" data-slide="0"></button>
+              <button class="carousel-dot" data-slide="1"></button>
+              <button class="carousel-dot" data-slide="2"></button>
+              <button class="carousel-dot" data-slide="3"></button>
+              <button class="carousel-dot" data-slide="4"></button>
+              <button class="carousel-dot" data-slide="5"></button>
+            </div>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-num">01</div>
+          <h3 class="project-name">InsightTrader</h3>
+          <div class="project-tagline">Trading Journal & Analytics Platform</div>
+          <p class="project-desc">Full-stack trading journal with CSV import supporting 12+ brokers, trade reconstruction engine, equity curve visualization, calendar heatmaps, and AI-powered analysis tools. Monorepo architecture with separate web and API services.</p>
+          <div class="project-highlights">12+ broker integrations · Monte Carlo analysis · AI trade coaching</div>
+          <div class="project-tech">
+            <span class="tech-pill">Next.js 15</span>
+            <span class="tech-pill">React 19</span>
+            <span class="tech-pill">FastAPI</span>
+            <span class="tech-pill">Supabase</span>
+            <span class="tech-pill">Fly.io</span>
+            <span class="tech-pill">Stripe</span>
+            <span class="tech-pill">OpenAI</span>
+            <span class="tech-pill">Anthropic</span>
+            <span class="tech-pill">TypeScript</span>
+          </div>
+          <a href="https://insighttrader.io" target="_blank" rel="noopener" class="project-link">
+            Visit Live Site
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Habify -->
+      <div class="project-card reverse reveal reveal-delay-1">
+        <div class="project-visual">
+          <div class="carousel-container" data-carousel>
+            <div class="carousel-slide active"><img src="screenshots/habify-momentum.png" alt="Habify Momentum" loading="lazy"></div>
+            <div class="carousel-slide"><img src="screenshots/habify-coach.png" alt="Habify AI Coach" loading="lazy"></div>
+            <div class="carousel-slide"><img src="screenshots/habify-gamification.png" alt="Habify Gamification" loading="lazy"></div>
+            <button class="carousel-nav prev" aria-label="Previous">‹</button>
+            <button class="carousel-nav next" aria-label="Next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active" data-slide="0"></button>
+              <button class="carousel-dot" data-slide="1"></button>
+              <button class="carousel-dot" data-slide="2"></button>
+            </div>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-num">02</div>
+          <h3 class="project-name">Habify</h3>
+          <div class="project-tagline">AI-Powered Habit Tracker · Mobile App</div>
+          <p class="project-desc">Mobile habit tracking app replacing streak-based systems with a physics-inspired momentum engine. Features AI coaching, gamification with XP/levels/badges, behavioral insights, and push notifications. Live on the Google Play Store.</p>
+          <div class="project-highlights">Momentum engine · AI coach · Live on Google Play</div>
+          <div class="project-tech">
+            <span class="tech-pill">React Native</span>
+            <span class="tech-pill">Expo</span>
+            <span class="tech-pill">FastAPI</span>
+            <span class="tech-pill">Supabase</span>
+            <span class="tech-pill">OpenAI</span>
+            <span class="tech-pill">RevenueCat</span>
+            <span class="tech-pill">Redis</span>
+            <span class="tech-pill">Docker</span>
+          </div>
+          <a href="https://habify.io" target="_blank" rel="noopener" class="project-link">
+            Visit Live Site
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- West Roxbury Framing -->
+      <div class="project-card reveal reveal-delay-1">
+        <div class="project-visual">
+          <div class="carousel-container" data-carousel>
+            <div class="carousel-slide active"><img src="screenshots/westrox-dashboard-full.png" alt="West Roxbury Framing Dashboard" loading="lazy"></div>
+            <div class="carousel-slide"><img src="screenshots/westrox-dashboard-overview.png" alt="West Roxbury Framing Dashboard Overview" loading="lazy"></div>
+            <div class="carousel-slide"><img src="screenshots/westrox-dashboard-orders-by-status.png" alt="West Roxbury Framing Orders by Status" loading="lazy"></div>
+            <div class="carousel-slide"><img src="screenshots/westrox-dashboard-overdue-orders.png" alt="West Roxbury Framing Overdue Orders" loading="lazy"></div>
+            <div class="carousel-slide"><img src="screenshots/westrox-dashboard-revenue-trends.png" alt="West Roxbury Framing Revenue Trends" loading="lazy"></div>
+            <div class="carousel-slide"><img src="screenshots/westrox-dashboard-customers-activity.png" alt="West Roxbury Framing Customer Activity" loading="lazy"></div>
+            <button class="carousel-nav prev" aria-label="Previous">‹</button>
+            <button class="carousel-nav next" aria-label="Next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active" data-slide="0"></button>
+              <button class="carousel-dot" data-slide="1"></button>
+              <button class="carousel-dot" data-slide="2"></button>
+              <button class="carousel-dot" data-slide="3"></button>
+              <button class="carousel-dot" data-slide="4"></button>
+              <button class="carousel-dot" data-slide="5"></button>
+            </div>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-num">03</div>
+          <h3 class="project-name">West Roxbury Framing</h3>
+          <div class="project-tagline">Business Management System</div>
+          <p class="project-desc">Production business management platform for a custom framing shop. Full order lifecycle with Kanban workflow, Square payment processing, Twilio SMS notifications, inventory tracking, customer CRM, and public marketing site.</p>
+          <div class="project-highlights">Square payments · Kanban workflow · SMS notifications · CRM</div>
+          <div class="project-tech">
+            <span class="tech-pill">Next.js 16</span>
+            <span class="tech-pill">React 19</span>
+            <span class="tech-pill">Prisma</span>
+            <span class="tech-pill">PostgreSQL</span>
+            <span class="tech-pill">Square API</span>
+            <span class="tech-pill">Twilio</span>
+            <span class="tech-pill">Postmark</span>
+            <span class="tech-pill">TypeScript</span>
+          </div>
+          <a href="https://westroxburyframing.com" target="_blank" rel="noopener" class="project-link">
+            Visit Live Site
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- SecureChat -->
+      <div class="project-card reverse reveal reveal-delay-1">
+        <div class="project-visual">
+          <div class="project-icon-visual">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2L4 6v6c0 5.55 3.84 10.74 8 12 4.16-1.26 8-6.45 8-12V6l-8-4z"/>
+              <path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-num">04</div>
+          <h3 class="project-name">SecureChat</h3>
+          <div class="project-tagline">End-to-End Encrypted Messaging</div>
+          <p class="project-desc">Cross-platform encrypted messaging app with NaCl Box cryptography (X25519 + XSalsa20-Poly1305). Real-time WebSocket messaging with per-message ephemeral keys for forward secrecy. Zero-knowledge server — the backend never sees plaintext.</p>
+          <div class="project-highlights">E2E encryption · Forward secrecy · Zero-knowledge server</div>
+          <div class="project-tech">
+            <span class="tech-pill">Flutter</span>
+            <span class="tech-pill">FastAPI</span>
+            <span class="tech-pill">PostgreSQL</span>
+            <span class="tech-pill">NaCl/libsodium</span>
+            <span class="tech-pill">WebSockets</span>
+            <span class="tech-pill">JWT</span>
+            <span class="tech-pill">Railway</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Strategy Reality Check -->
+      <div class="project-card reveal reveal-delay-1">
+        <div class="project-visual">
+          <div class="carousel-container" data-carousel>
+            <div class="carousel-slide active"><img src="screenshots/strategychecker-frontpage.png" alt="Strategy Reality Check" loading="lazy"></div>
+            <div class="carousel-dots">
+              <button class="carousel-dot active" aria-label="Slide 1"></button>
+            </div>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-num">05</div>
+          <h3 class="project-name">Strategy Reality Check</h3>
+          <div class="project-tagline">Trading Strategy Validator</div>
+          <p class="project-desc">Statistical analysis tool for traders. Upload trade history, define strategy rules, and get a verdict on whether your edge is real or just luck — powered by Monte Carlo simulation with 10,000 iterations.</p>
+          <div class="project-highlights">Monte Carlo simulation · 10K iterations · Statistical verdict</div>
+          <div class="project-tech">
+            <span class="tech-pill">Next.js 14</span>
+            <span class="tech-pill">React</span>
+            <span class="tech-pill">Neon Postgres</span>
+            <span class="tech-pill">NextAuth.js</span>
+            <span class="tech-pill">TypeScript</span>
+            <span class="tech-pill">Tailwind CSS</span>
+          </div>
+          <a href="https://tradingtool-delta.vercel.app/" target="_blank" rel="noopener" class="project-link">
+            Visit Live Site
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- CarCompare -->
+      <div class="project-card reverse reveal reveal-delay-1">
+        <div class="project-visual">
+          <div class="carousel-container" data-carousel>
+            <div class="carousel-slide active"><img src="screenshots/carcompare-frontpage.png" alt="CarCompare" loading="lazy"></div>
+            <div class="carousel-dots">
+              <button class="carousel-dot active" aria-label="Slide 1"></button>
+            </div>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-num">06</div>
+          <h3 class="project-name">CarCompare</h3>
+          <div class="project-tagline">Vehicle Comparison Tool</div>
+          <p class="project-desc">Compare up to 4 vehicles side-by-side across 10 specification categories. Database of 600+ vehicles from 47 brands with cascading dropdowns and responsive design. Single-file deployment — zero dependencies.</p>
+          <div class="project-highlights">600+ vehicles · 47 brands · Zero dependencies</div>
+          <div class="project-tech">
+            <span class="tech-pill">JavaScript</span>
+            <span class="tech-pill">HTML5</span>
+            <span class="tech-pill">CSS3</span>
+            <span class="tech-pill">No Libraries</span>
+          </div>
+          <a href="https://jakecars.vercel.app/" target="_blank" rel="noopener" class="project-link">
+            Visit Live Site
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          </a>
+        </div>
+      </div>
+      <!-- Hebrew Teacher -->
+      <div class="project-card reveal reveal-delay-1">
+        <div class="project-visual">
+          <div class="project-icon-visual" style="flex-direction: column; gap: 0;">
+            <svg viewBox="0 0 360 240" xmlns="http://www.w3.org/2000/svg" style="width: 65%; height: auto; opacity: 0.85;">
+              <!-- Israeli Flag -->
+              <rect width="360" height="240" fill="#fff"/>
+              <rect y="18" width="360" height="36" fill="#0038b8"/>
+              <rect y="186" width="360" height="36" fill="#0038b8"/>
+              <!-- Star of David (equilateral) -->
+              <polygon points="180,72 228,155 132,155" fill="none" stroke="#0038b8" stroke-width="6"/>
+              <polygon points="180,168 132,85 228,85" fill="none" stroke="#0038b8" stroke-width="6"/>
+            </svg>
+            <div style="font-size: 28px; letter-spacing: 12px; opacity: 0.5; color: var(--green); font-weight: 600; margin-top: 16px; direction: rtl;">אבגדהוז</div>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-num">07</div>
+          <h3 class="project-name">Hebrew Teacher</h3>
+          <div class="project-tagline">AI Language Tutor</div>
+          <p class="project-desc">Interactive desktop app for learning Hebrew with GPT-4 as a personal tutor. Structured lessons by proficiency level, vocabulary review with a spaced repetition algorithm, grammar correction, and conversational practice. Built it because I moved to Israel and needed to actually learn the language.</p>
+          <div class="project-highlights">GPT-4 tutor · Spaced repetition · Grammar correction</div>
+          <div class="project-tech">
+            <span class="tech-pill">Python</span>
+            <span class="tech-pill">OpenAI GPT-4</span>
+            <span class="tech-pill">ttkbootstrap</span>
+            <span class="tech-pill">Spaced Repetition</span>
+          </div>
+          <a href="https://github.com/MattDevOps/hebrewteacher" target="_blank" rel="noopener" class="project-link">
+            View on GitHub
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          </a>
+        </div>
+      </div>
+      <!-- PolyBot -->
+      <div class="project-card reverse reveal reveal-delay-1">
+        <div class="project-visual">
+          <div class="carousel-container" data-carousel>
+            <div class="carousel-slide active"><img src="screenshots/polybot-dashboard-overview.png" alt="PolyBot Dashboard Overview" loading="lazy"></div>
+            <div class="carousel-slide"><img src="screenshots/polybot-dashboard-all-markets.png" alt="PolyBot All Markets" loading="lazy"></div>
+            <div class="carousel-slide"><img src="screenshots/polybot-dashboard-meme.png" alt="PolyBot Meme Markets" loading="lazy"></div>
+            <button class="carousel-nav prev" aria-label="Previous">‹</button>
+            <button class="carousel-nav next" aria-label="Next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active" data-slide="0"></button>
+              <button class="carousel-dot" data-slide="1"></button>
+              <button class="carousel-dot" data-slide="2"></button>
+            </div>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-num">08</div>
+          <h3 class="project-name">PolyBot</h3>
+          <div class="project-tagline">Polymarket Alpha Scanner</div>
+          <p class="project-desc">Automated prediction market scanner that fetches active Polymarket markets, scores them for alpha potential using liquidity, volume, and spread analysis, then deep-researches top picks via Perplexity AI. Generates a slick terminal-style dashboard with verdicts, profit scores, key findings, and risk factors for each play.</p>
+          <div class="project-highlights">Alpha scoring engine · AI-powered research · Terminal dashboard</div>
+          <div class="project-tech">
+            <span class="tech-pill">Python</span>
+            <span class="tech-pill">Polymarket API</span>
+            <span class="tech-pill">Perplexity AI</span>
+            <span class="tech-pill">HTML/CSS/JS</span>
+          </div>
+          <a href="https://polybot-one-xi.vercel.app" target="_blank" rel="noopener" class="project-link">
+            Visit Live Site
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TECH STACK ═══ -->
+<section id="stack">
+  <div class="section-container">
+    <div class="reveal">
+      <div class="section-label">// Tech Stack</div>
+      <h2 class="section-title">Tools of the trade.</h2>
+      <p class="section-subtitle">Technologies I use across the full stack — frontend to infrastructure, payments to AI.</p>
+    </div>
+
+    <div class="stack-grid">
+      <div class="stack-category reveal reveal-delay-1">
+        <div class="stack-category-icon">⚡</div>
+        <div class="stack-category-name">Frontend</div>
+        <div class="stack-items">
+          <div class="stack-item">React / React Native</div>
+          <div class="stack-item">Next.js</div>
+          <div class="stack-item">Expo</div>
+          <div class="stack-item">TypeScript</div>
+          <div class="stack-item">Tailwind CSS</div>
+          <div class="stack-item">Framer Motion</div>
+          <div class="stack-item">Flutter</div>
+        </div>
+      </div>
+      <div class="stack-category reveal reveal-delay-2">
+        <div class="stack-category-icon">⚙️</div>
+        <div class="stack-category-name">Backend</div>
+        <div class="stack-items">
+          <div class="stack-item">FastAPI</div>
+          <div class="stack-item">Python</div>
+          <div class="stack-item">Node.js</div>
+          <div class="stack-item">Prisma</div>
+          <div class="stack-item">SQLAlchemy</div>
+          <div class="stack-item">WebSockets</div>
+        </div>
+      </div>
+      <div class="stack-category reveal reveal-delay-3">
+        <div class="stack-category-icon">🗃️</div>
+        <div class="stack-category-name">Data</div>
+        <div class="stack-items">
+          <div class="stack-item">PostgreSQL</div>
+          <div class="stack-item">Supabase</div>
+          <div class="stack-item">Neon</div>
+          <div class="stack-item">Redis</div>
+        </div>
+      </div>
+      <div class="stack-category reveal reveal-delay-4">
+        <div class="stack-category-icon">🤖</div>
+        <div class="stack-category-name">AI / ML</div>
+        <div class="stack-items">
+          <div class="stack-item">OpenAI / GPT-4</div>
+          <div class="stack-item">Anthropic Claude</div>
+          <div class="stack-item">AI Pair Programming</div>
+          <div class="stack-item">Monte Carlo Simulation</div>
+        </div>
+      </div>
+      <div class="stack-category reveal reveal-delay-1">
+        <div class="stack-category-icon">☁️</div>
+        <div class="stack-category-name">Infrastructure</div>
+        <div class="stack-items">
+          <div class="stack-item">AWS</div>
+          <div class="stack-item">Vercel</div>
+          <div class="stack-item">Fly.io</div>
+          <div class="stack-item">Railway</div>
+          <div class="stack-item">Docker</div>
+          <div class="stack-item">GitHub Actions</div>
+          <div class="stack-item">Microservices</div>
+        </div>
+      </div>
+      <div class="stack-category reveal reveal-delay-2">
+        <div class="stack-category-icon">💳</div>
+        <div class="stack-category-name">Payments / APIs</div>
+        <div class="stack-items">
+          <div class="stack-item">Stripe</div>
+          <div class="stack-item">Square</div>
+          <div class="stack-item">Twilio</div>
+          <div class="stack-item">Postmark</div>
+          <div class="stack-item">RevenueCat</div>
+        </div>
+      </div>
+      <div class="stack-category reveal reveal-delay-3">
+        <div class="stack-category-icon">📱</div>
+        <div class="stack-category-name">Mobile</div>
+        <div class="stack-items">
+          <div class="stack-item">React Native</div>
+          <div class="stack-item">Expo</div>
+          <div class="stack-item">Flutter</div>
+          <div class="stack-item">Google Play Store</div>
+        </div>
+      </div>
+      <div class="stack-category reveal reveal-delay-4">
+        <div class="stack-category-icon">🧪</div>
+        <div class="stack-category-name">Testing</div>
+        <div class="stack-items">
+          <div class="stack-item">Playwright</div>
+          <div class="stack-item">Postman</div>
+          <div class="stack-item">Pytest</div>
+          <div class="stack-item">E2E Testing</div>
+          <div class="stack-item">Sentry</div>
+          <div class="stack-item">PostHog</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EXPERIENCE ═══ -->
+<section id="experience">
+  <div class="section-container">
+    <div class="reveal">
+      <div class="section-label">// Experience</div>
+      <h2 class="section-title">8 years at Sonos.</h2>
+      <p class="section-subtitle">From technical support to engineering infrastructure — I grew through the company, solving progressively harder problems at larger scale.</p>
+    </div>
+
+    <div class="experience-progression">
+      <div class="experience-role-block reveal reveal-delay-1">
+        <div class="experience-dates">2019 — 2023</div>
+        <div class="experience-role">Build & Automation Engineer</div>
+        <p class="experience-desc">Owned CI/CD infrastructure serving Sonos engineering across frontend and backend systems. Reduced build failure rates from 30% to 0.9% and cut build times by 77%, directly accelerating release velocity across hardware and software product lines. Built end-to-end test automation frameworks using Playwright across microservices architectures, validated API contracts with Postman, and leveraged AWS services for scalable build and deployment infrastructure. Mentored engineers across multiple teams on build systems, testing strategy, and DevOps best practices.</p>
+        <div class="experience-tech">
+          <span class="tech-pill">CI/CD</span>
+          <span class="tech-pill">Playwright</span>
+          <span class="tech-pill">Test Automation</span>
+          <span class="tech-pill">Microservices</span>
+          <span class="tech-pill">AWS</span>
+          <span class="tech-pill">Postman</span>
+          <span class="tech-pill">Pipeline Architecture</span>
+          <span class="tech-pill">Cross-Team Mentorship</span>
+        </div>
+      </div>
+
+      <div class="experience-role-block reveal reveal-delay-2">
+        <div class="experience-dates">2015 — 2019</div>
+        <div class="experience-role">Technical Support Engineer & Team Lead</div>
+        <p class="experience-desc">Led technical support teams of 3–10 engineers, building escalation workflows and developing diagnostic tools for troubleshooting complex network interference issues across Sonos's connected device ecosystem. Bridged the gap between customer-facing support and engineering, translating field data into actionable improvements for product teams.</p>
+        <div class="experience-tech">
+          <span class="tech-pill">Team Leadership</span>
+          <span class="tech-pill">Diagnostic Tooling</span>
+          <span class="tech-pill">Escalation Workflows</span>
+          <span class="tech-pill">Network Troubleshooting</span>
+          <span class="tech-pill">Cross-Functional Collaboration</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CASE STUDIES ═══ -->
+<section id="case-studies">
+  <div class="section-container">
+    <div class="reveal">
+      <div class="section-label">// Deep Dives</div>
+      <h2 class="section-title">Case studies.</h2>
+      <p class="section-subtitle">A closer look at the engineering decisions, tradeoffs, and results behind two key projects.</p>
+    </div>
+
+    <div class="case-studies-grid">
+      <div class="case-study reveal reveal-delay-1">
+        <div class="case-study-header">
+          <div class="case-study-label">Case Study</div>
+          <h3 class="case-study-name">InsightTrader</h3>
+          <div class="case-study-tagline">Trading Journal & Analytics Platform</div>
+        </div>
+        <div class="case-study-body">
+          <div class="case-study-section">
+            <div class="case-study-section-title">Problem</div>
+            <p>Existing trading journals were either too simple (spreadsheets) or too expensive and bloated. Traders needed a tool that could ingest data from any broker, reconstruct complex multi-leg trades, and provide genuine statistical insight — not just pretty charts.</p>
+          </div>
+          <div class="case-study-metrics">
+            <div class="case-study-metric">
+              <div class="case-study-metric-num">12+</div>
+              <div class="case-study-metric-label">Broker Integrations</div>
+            </div>
+            <div class="case-study-metric">
+              <div class="case-study-metric-num">10K</div>
+              <div class="case-study-metric-label">Monte Carlo Sims</div>
+            </div>
+            <div class="case-study-metric">
+              <div class="case-study-metric-num">Solo</div>
+              <div class="case-study-metric-label">Full-Stack Build</div>
+            </div>
+          </div>
+          <div class="case-study-section">
+            <div class="case-study-section-title">Approach</div>
+            <p>Built a monorepo architecture with a Next.js 15 frontend and FastAPI backend. Designed a universal CSV parser that normalizes data across 12+ broker formats. Implemented a trade reconstruction engine that handles splits, merges, and partial fills. Added AI-powered analysis using both OpenAI and Anthropic for trade coaching.</p>
+          </div>
+          <div class="case-study-section">
+            <div class="case-study-section-title">Results</div>
+            <p>Live at insighttrader.io with active users and Stripe subscriptions. The Monte Carlo simulation engine processes 10,000 iterations in under 2 seconds. Users can import their entire trading history and get statistical analysis of their edge within minutes.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-study reveal reveal-delay-2">
+        <div class="case-study-header">
+          <div class="case-study-label">Case Study</div>
+          <h3 class="case-study-name">Habify</h3>
+          <div class="case-study-tagline">AI-Powered Habit Tracker</div>
+        </div>
+        <div class="case-study-body">
+          <div class="case-study-section">
+            <div class="case-study-section-title">Problem</div>
+            <p>Streak-based habit trackers punish users for missing a single day, destroying motivation. The psychology literature shows that momentum — not perfection — drives lasting behavior change. No app on the market implemented this insight.</p>
+          </div>
+          <div class="case-study-metrics">
+            <div class="case-study-metric">
+              <div class="case-study-metric-num">Live</div>
+              <div class="case-study-metric-label">Google Play Store</div>
+            </div>
+            <div class="case-study-metric">
+              <div class="case-study-metric-num">AI</div>
+              <div class="case-study-metric-label">Coaching Engine</div>
+            </div>
+            <div class="case-study-metric">
+              <div class="case-study-metric-num">XP</div>
+              <div class="case-study-metric-label">Gamification System</div>
+            </div>
+          </div>
+          <div class="case-study-section">
+            <div class="case-study-section-title">Approach</div>
+            <p>Designed a physics-inspired momentum engine that calculates habit strength based on consistency, recency, and frequency — not binary streaks. Built with React Native + Expo for cross-platform, FastAPI backend with Supabase, and an AI coaching system using GPT-4 that adapts to each user's patterns.</p>
+          </div>
+          <div class="case-study-section">
+            <div class="case-study-section-title">Results</div>
+            <p>Published on the Google Play Store with monetization via RevenueCat. The momentum system reduced user churn from missed days by reframing progress. Gamification layer (XP, levels, badges) drives daily engagement. AI coach provides personalized suggestions based on completion history.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ WRITING (hidden for now) ═══ -->
+<section id="writing" style="display:none">
+  <div class="section-container">
+    <div class="reveal">
+      <div class="section-label">// Writing</div>
+      <h2 class="section-title">Thinking out loud.</h2>
+      <p class="section-subtitle">Notes on building software, using AI effectively, and shipping fast as a solo engineer.</p>
+    </div>
+
+    <div class="writing-grid">
+      <div class="writing-card reveal reveal-delay-1">
+        <div class="writing-card-tag">AI Engineering</div>
+        <h3 class="writing-card-title">The Real AI-Augmented Workflow</h3>
+        <p class="writing-card-excerpt">Everyone says they use AI to code. Here's what it actually looks like across 8 production launches — the parts that work, the parts that don't, and why engineering judgment still matters more than prompt quality.</p>
+        <div class="writing-card-date">Coming Soon</div>
+      </div>
+
+      <div class="writing-card reveal reveal-delay-2">
+        <div class="writing-card-tag">Shipping</div>
+        <h3 class="writing-card-title">From Sonos to Solo: What Changes</h3>
+        <p class="writing-card-excerpt">8 years at a hardware company taught me how to build systems. Going solo taught me how to ship products. The skills overlap less than you'd think — here's what I had to unlearn.</p>
+        <div class="writing-card-date">Coming Soon</div>
+      </div>
+
+      <div class="writing-card reveal reveal-delay-3">
+        <div class="writing-card-tag">Architecture</div>
+        <h3 class="writing-card-title">Why I Keep Choosing FastAPI + Next.js</h3>
+        <p class="writing-card-excerpt">After shipping 8 apps across different stacks, I keep coming back to the same core combo. Not because it's trendy — because it lets a solo developer move at the speed of a small team.</p>
+        <div class="writing-card-date">Coming Soon</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section id="contact">
+  <canvas id="contact-canvas"></canvas>
+  <div class="section-container">
+    <div class="reveal">
+      <div class="section-label">// Contact</div>
+      <h2 class="section-title">Let's connect.</h2>
+    </div>
+
+    <div class="contact-grid">
+      <div class="reveal reveal-delay-1">
+        <p class="contact-text">I'm based in Jerusalem and run Hasson, Inc. — I've worked US hours for years (Sonos was Boston). Open to contracts, partnerships, or full-time roles for the right fit. If you're building something real, let's talk.</p>
+        <form class="contact-form" id="contactForm">
+          <div class="contact-form-row">
+            <div class="contact-form-group">
+              <label class="contact-form-label" for="contact-name">Name</label>
+              <input class="contact-form-input" type="text" id="contact-name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="contact-form-group">
+              <label class="contact-form-label" for="contact-email">Email</label>
+              <input class="contact-form-input" type="email" id="contact-email" name="email" placeholder="your@email.com" required>
+            </div>
+          </div>
+          <div class="contact-form-group">
+            <label class="contact-form-label" for="contact-subject">Subject</label>
+            <input class="contact-form-input" type="text" id="contact-subject" name="subject" placeholder="What's this about?">
+          </div>
+          <div class="contact-form-group">
+            <label class="contact-form-label" for="contact-message">Message</label>
+            <textarea class="contact-form-textarea" id="contact-message" name="message" placeholder="Your message..." required></textarea>
+          </div>
+          <button type="submit" class="contact-form-submit" id="contactSubmit">Send Message</button>
+          <div class="contact-form-status" id="contactStatus"></div>
+        </form>
+      </div>
+      <div class="contact-items reveal reveal-delay-2">
+        <a href="mailto:matthew.hasson93@gmail.com" class="contact-item">
+          <div class="contact-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4l-10 8L2 4"/></svg>
+          </div>
+          <div>
+            <div class="contact-item-label">Email</div>
+            <div class="contact-item-value">matthew.hasson93@gmail.com</div>
+          </div>
+        </a>
+        <a href="mailto:matt@insighttrader.io" class="contact-item">
+          <div class="contact-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4l-10 8L2 4"/></svg>
+          </div>
+          <div>
+            <div class="contact-item-label">Email</div>
+            <div class="contact-item-value">matt@insighttrader.io</div>
+          </div>
+        </a>
+        <a href="tel:+16179397715" class="contact-item">
+          <div class="contact-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="contact-item-label">Phone (US)</div>
+            <div class="contact-item-value">&#127482;&#127480; +1 617-939-7715</div>
+          </div>
+        </a>
+        <a href="tel:+972532803041" class="contact-item">
+          <div class="contact-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="contact-item-label">Phone (IL)</div>
+            <div class="contact-item-value">&#127470;&#127473; +972 53-280-3041</div>
+          </div>
+        </a>
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="contact-item-label">Location</div>
+            <div class="contact-item-value">Jerusalem, Israel</div>
+          </div>
+        </div>
+        <a href="https://github.com/MattDevOps" target="_blank" rel="noopener" class="contact-item">
+          <div class="contact-item-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          </div>
+          <div>
+            <div class="contact-item-label">GitHub</div>
+            <div class="contact-item-value">MattDevOps</div>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/in/matthew-hasson/" target="_blank" rel="noopener" class="contact-item">
+          <div class="contact-item-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </div>
+          <div>
+            <div class="contact-item-label">LinkedIn</div>
+            <div class="contact-item-value">matthew-hasson</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<!-- ═══ SNAKE GAME ═══ -->
+<button class="snake-trigger" id="snakeTrigger" title="Play Snake">🐍</button>
+<div class="snake-overlay" id="snakeOverlay">
+  <div class="snake-modal">
+    <div class="snake-header">
+      <div class="snake-title">Snake</div>
+      <div class="snake-score-display">Score: <span id="snakeScore">0</span> &nbsp; Best: <span id="snakeBest">0</span></div>
+      <button class="snake-close" id="snakeClose">✕</button>
+    </div>
+    <canvas id="snake-canvas" width="400" height="400"></canvas>
+    <div class="snake-instructions">WASD / Arrow Keys to move · ESC to close</div>
+    <div class="snake-touch-controls">
+      <div class="snake-touch-spacer"></div>
+      <button class="snake-touch-btn" data-dir="up">▲</button>
+      <div class="snake-touch-spacer"></div>
+      <button class="snake-touch-btn" data-dir="left">◀</button>
+      <button class="snake-touch-btn" data-dir="down">▼</button>
+      <button class="snake-touch-btn" data-dir="right">▶</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SCORE WIDGET ═══ -->
+<div id="score-widget">
+  <div class="score-box" id="scoreBox">
+    <span class="score-icon">⚡</span>
+    <div>
+      <div class="score-label">How Cool You Are</div>
+      <div class="score-rank" id="scoreRank">Rank: Pretty Cool</div>
+    </div>
+    <div class="score-value" id="scoreValue">0</div>
+  </div>
+  <div class="score-bar"><div class="score-bar-fill" id="scoreBarFill"></div></div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="https://github.com/MattDevOps" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        GitHub
+      </a>
+      <a href="mailto:matthew.hasson93@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4l-10 8L2 4"/></svg>
+        matthew.hasson93@gmail.com
+      </a>
+      <a href="https://www.linkedin.com/in/matthew-hasson/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+    </div>
+    <div class="footer-note">matthasson.com · Built with AI augmentation · © 2026</div>
+  </div>
+</footer>
+
+<script>
+// ═══ PARTICLE FIELD ═══
+(function() {
+  const canvas = document.getElementById('particle-canvas');
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  let bursts = [];
+  let mouse = { x: null, y: null, px: null, py: null, vx: 0, vy: 0, speed: 0, active: false };
+  let w, h;
+
+  function resize() {
+    w = canvas.width = canvas.offsetWidth;
+    h = canvas.height = canvas.offsetHeight;
+  }
+
+  resize();
+  window.addEventListener('resize', resize);
+
+  canvas.addEventListener('mousemove', e => {
+    const rect = canvas.getBoundingClientRect();
+    const nx = e.clientX - rect.left;
+    const ny = e.clientY - rect.top;
+    if (mouse.x !== null) {
+      mouse.vx = nx - mouse.x;
+      mouse.vy = ny - mouse.y;
+      mouse.speed = Math.sqrt(mouse.vx * mouse.vx + mouse.vy * mouse.vy);
+    }
+    mouse.px = mouse.x;
+    mouse.py = mouse.y;
+    mouse.x = nx;
+    mouse.y = ny;
+    mouse.active = true;
+  });
+
+  canvas.addEventListener('mouseleave', () => {
+    mouse.x = null;
+    mouse.y = null;
+    mouse.speed = 0;
+    mouse.active = false;
+  });
+
+  // Click burst — scales with mouse speed
+  canvas.addEventListener('click', e => {
+    const rect = canvas.getBoundingClientRect();
+    const cx = e.clientX - rect.left;
+    const cy = e.clientY - rect.top;
+    const count = Math.floor(12 + mouse.speed * 0.5);
+    for (let i = 0; i < count; i++) {
+      const angle = (Math.PI * 2 / count) * i + (Math.random() - 0.5) * 0.4;
+      const speed = 2 + Math.random() * 3 + mouse.speed * 0.15;
+      bursts.push({
+        x: cx, y: cy,
+        vx: Math.cos(angle) * speed + mouse.vx * 0.3,
+        vy: Math.sin(angle) * speed + mouse.vy * 0.3,
+        r: Math.random() * 2.5 + 1,
+        life: 1,
+        decay: 0.012 + Math.random() * 0.008
+      });
+    }
+  });
+
+  // Two layers: back (small/dim/slow) and front (larger/bright/normal)
+  const backCount = Math.min(60, Math.floor(window.innerWidth / 25));
+  const frontCount = Math.min(90, Math.floor(window.innerWidth / 12));
+
+  for (let i = 0; i < backCount; i++) {
+    particles.push({
+      x: Math.random() * w, y: Math.random() * h,
+      vx: (Math.random() - 0.5) * 0.15,
+      vy: (Math.random() - 0.5) * 0.15,
+      r: Math.random() * 0.8 + 0.3,
+      layer: 0
+    });
+  }
+
+  for (let i = 0; i < frontCount; i++) {
+    particles.push({
+      x: Math.random() * w, y: Math.random() * h,
+      vx: (Math.random() - 0.5) * 0.5,
+      vy: (Math.random() - 0.5) * 0.5,
+      baseR: Math.random() * 1.8 + 0.6,
+      r: 0,
+      layer: 1
+    });
+  }
+
+  function lerp(a, b, t) { return a + (b - a) * t; }
+  function clamp(v, min, max) { return Math.max(min, Math.min(max, v)); }
+
+  // Smoothed mouse speed for effects (decays each frame)
+  let smoothSpeed = 0;
+
+  function draw() {
+    ctx.clearRect(0, 0, w, h);
+
+    // Smooth the mouse speed so effects feel fluid, not jumpy
+    smoothSpeed = lerp(smoothSpeed, mouse.speed, 0.15);
+    // Decay speed when mouse isn't moving
+    mouse.speed *= 0.9;
+
+    // Interaction radius scales with speed
+    const interactRadius = 120 + smoothSpeed * 4;
+    // Force strength scales with speed
+    const forceMultiplier = 0.02 + smoothSpeed * 0.004;
+
+    // Back layer — also reacts to mouse slightly
+    for (let i = 0; i < particles.length; i++) {
+      const p = particles[i];
+      if (p.layer !== 0) continue;
+
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
+      if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
+
+      // Subtle mouse push on back layer
+      if (mouse.x !== null && smoothSpeed > 1) {
+        const dx = p.x - mouse.x;
+        const dy = p.y - mouse.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < interactRadius * 0.6 && dist > 1) {
+          const force = (interactRadius * 0.6 - dist) / (interactRadius * 0.6) * 0.005 * smoothSpeed;
+          p.vx += dx / dist * force;
+          p.vy += dy / dist * force;
+        }
+      }
+
+      p.vx *= 0.997;
+      p.vy *= 0.997;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(118, 185, 0, 0.12)';
+      ctx.fill();
+    }
+
+    // Front layer with full mouse interaction + connections
+    const front = particles.filter(p => p.layer === 1);
+
+    for (let i = 0; i < front.length; i++) {
+      const p = front[i];
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
+      if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
+
+      if (mouse.x !== null) {
+        const dx = p.x - mouse.x;
+        const dy = p.y - mouse.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        if (dist < interactRadius && dist > 1) {
+          const proximity = (interactRadius - dist) / interactRadius;
+
+          if (smoothSpeed > 2) {
+            // Moving: repel with force proportional to speed
+            const force = proximity * forceMultiplier;
+            p.vx += dx / dist * force;
+            p.vy += dy / dist * force;
+
+            // Wake effect: drag particles slightly in mouse direction
+            const wake = proximity * 0.003 * smoothSpeed;
+            p.vx += mouse.vx * wake;
+            p.vy += mouse.vy * wake;
+          } else {
+            // Slow/still: attract gently to form constellation
+            const force = proximity * 0.012;
+            p.vx -= dx / dist * force;
+            p.vy -= dy / dist * force;
+
+            // Slight orbit when close and still
+            if (dist < 80) {
+              p.vx += -dy / dist * 0.003;
+              p.vy += dx / dist * 0.003;
+            }
+          }
+        }
+      }
+
+      // Damping — less when mouse is fast so particles carry momentum
+      const damp = smoothSpeed > 5 ? 0.992 : 0.985;
+      p.vx *= damp;
+      p.vy *= damp;
+
+      // Particle size pulses near cursor
+      let sizeBoost = 1;
+      if (mouse.x !== null) {
+        const dx = p.x - mouse.x;
+        const dy = p.y - mouse.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < interactRadius) {
+          sizeBoost = 1 + (1 - dist / interactRadius) * 0.6 * (1 + smoothSpeed * 0.03);
+        }
+      }
+      p.r = p.baseR * sizeBoost;
+
+      // Color gradient: green at top → cyan at bottom
+      const t = p.y / h;
+      const cr = Math.round(lerp(118, 0, t));
+      const cg = Math.round(lerp(185, 212, t));
+      const cb = Math.round(lerp(0, 170, t));
+
+      // Brightness boost near cursor
+      const alpha = clamp(0.35 + (sizeBoost - 1) * 0.4, 0.35, 0.7);
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${cr}, ${cg}, ${cb}, ${alpha})`;
+      ctx.fill();
+
+      // Connections between particles
+      for (let j = i + 1; j < front.length; j++) {
+        const p2 = front[j];
+        const dx = p.x - p2.x;
+        const dy = p.y - p2.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 130) {
+          const lineAlpha = 0.07 * (1 - dist / 130);
+          const mt = (p.y + p2.y) / 2 / h;
+          const mr = Math.round(lerp(118, 0, mt));
+          const mg = Math.round(lerp(185, 212, mt));
+          const mb = Math.round(lerp(0, 170, mt));
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.strokeStyle = `rgba(${mr}, ${mg}, ${mb}, ${lineAlpha})`;
+          ctx.lineWidth = 0.5;
+          ctx.stroke();
+        }
+      }
+
+      // Lines to cursor — visible when slow, fade when fast
+      if (mouse.x !== null && smoothSpeed < 4) {
+        const dx = p.x - mouse.x;
+        const dy = p.y - mouse.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 150) {
+          const fade = 1 - smoothSpeed / 4;
+          const lineAlpha = 0.15 * (1 - dist / 150) * fade;
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(mouse.x, mouse.y);
+          ctx.strokeStyle = `rgba(118, 185, 0, ${lineAlpha})`;
+          ctx.lineWidth = 0.6;
+          ctx.stroke();
+        }
+      }
+    }
+
+    // Burst particles
+    for (let i = bursts.length - 1; i >= 0; i--) {
+      const b = bursts[i];
+      b.x += b.vx;
+      b.y += b.vy;
+      b.vx *= 0.96;
+      b.vy *= 0.96;
+      b.life -= b.decay;
+
+      if (b.life <= 0) {
+        bursts.splice(i, 1);
+        continue;
+      }
+
+      ctx.beginPath();
+      ctx.arc(b.x, b.y, b.r * b.life, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(118, 185, 0, ${b.life * 0.6})`;
+      ctx.fill();
+    }
+
+    // Cursor glow — scales with speed
+    if (mouse.x !== null) {
+      const glowRadius = 60 + smoothSpeed * 3;
+      const glowAlpha = clamp(0.04 + smoothSpeed * 0.005, 0.04, 0.12);
+      const grd = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, glowRadius);
+      grd.addColorStop(0, `rgba(118, 185, 0, ${glowAlpha})`);
+      grd.addColorStop(1, 'rgba(118, 185, 0, 0)');
+      ctx.beginPath();
+      ctx.arc(mouse.x, mouse.y, glowRadius, 0, Math.PI * 2);
+      ctx.fillStyle = grd;
+      ctx.fill();
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  draw();
+})();
+
+// ═══ CONTACT PARTICLE FIELD ═══
+(function() {
+  const section = document.getElementById('contact');
+  const canvas = document.getElementById('contact-canvas');
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  let w, h;
+  let active = false;
+
+  function resize() {
+    w = canvas.width = section.offsetWidth;
+    h = canvas.height = section.offsetHeight;
+  }
+
+  const obs = new IntersectionObserver(entries => {
+    active = entries[0].isIntersecting;
+    if (active && particles.length === 0) init();
+  }, { threshold: 0.05 });
+  obs.observe(section);
+
+  function init() {
+    resize();
+    window.addEventListener('resize', resize);
+    const count = Math.min(50, Math.floor(window.innerWidth / 30));
+    for (let i = 0; i < count; i++) {
+      particles.push({
+        x: Math.random() * w, y: Math.random() * h,
+        vx: (Math.random() - 0.5) * 0.2,
+        vy: (Math.random() - 0.5) * 0.2,
+        r: Math.random() * 1.2 + 0.3
+      });
+    }
+    draw();
+  }
+
+  function draw() {
+    if (!active) { requestAnimationFrame(draw); return; }
+
+    ctx.clearRect(0, 0, w, h);
+
+    for (let i = 0; i < particles.length; i++) {
+      const p = particles[i];
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
+      if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(118, 185, 0, 0.15)';
+      ctx.fill();
+
+      for (let j = i + 1; j < particles.length; j++) {
+        const p2 = particles[j];
+        const dx = p.x - p2.x;
+        const dy = p.y - p2.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 140) {
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.strokeStyle = `rgba(118, 185, 0, ${0.04 * (1 - dist / 140)})`;
+          ctx.lineWidth = 0.4;
+          ctx.stroke();
+        }
+      }
+    }
+
+    requestAnimationFrame(draw);
+  }
+})();
+
+// ═══ SCROLL REVEAL ═══
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// ═══ COUNTER ANIMATION ═══
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !entry.target.dataset.counted) {
+      entry.target.dataset.counted = 'true';
+      const target = parseInt(entry.target.dataset.target);
+      const duration = 1500;
+      const start = performance.now();
+
+      function update(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        entry.target.textContent = Math.round(target * eased);
+        if (progress < 1) requestAnimationFrame(update);
+      }
+
+      requestAnimationFrame(update);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+
+// ═══ NAV SCROLL ═══
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// ═══ MOBILE NAV ═══
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+
+navToggle.addEventListener('click', () => {
+  navToggle.classList.toggle('active');
+  navLinks.classList.toggle('open');
+});
+
+// Close mobile nav on link click
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => {
+    navToggle.classList.remove('active');
+    navLinks.classList.remove('open');
+  });
+});
+
+// Close mobile nav on outside tap
+document.addEventListener('click', (e) => {
+  if (navLinks.classList.contains('open') && !e.target.closest('nav')) {
+    navToggle.classList.remove('active');
+    navLinks.classList.remove('open');
+  }
+});
+
+
+// ═══ CAROUSELS ═══
+document.querySelectorAll('[data-carousel]').forEach(carousel => {
+  const slides = carousel.querySelectorAll('.carousel-slide');
+  const dots = carousel.querySelectorAll('.carousel-dot');
+  const prevBtn = carousel.querySelector('.carousel-nav.prev');
+  const nextBtn = carousel.querySelector('.carousel-nav.next');
+  let current = 0;
+
+  function goTo(index) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (index + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));
+  if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1));
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => goTo(parseInt(dot.dataset.slide)));
+  });
+
+  // Auto-advance every 5s
+  let timer = setInterval(() => goTo(current + 1), 5000);
+  carousel.addEventListener('mouseenter', () => clearInterval(timer));
+  carousel.addEventListener('mouseleave', () => {
+    timer = setInterval(() => goTo(current + 1), 5000);
+  });
+});
+
+// ═══ CONTACT FORM ═══
+document.getElementById('contactForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('contactSubmit');
+  const status = document.getElementById('contactStatus');
+  const form = e.target;
+
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span>Sending...';
+  status.className = 'contact-form-status';
+
+  try {
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: form.name.value,
+        email: form.email.value,
+        subject: form.subject.value,
+        message: form.message.value
+      })
+    });
+
+    if (res.ok) {
+      status.textContent = 'Thanks — I\'ll get back to you soon.';
+      status.className = 'contact-form-status success';
+      form.reset();
+      if (window.gameScore) window.gameScore('message');
+    } else {
+      const data = await res.json().catch(() => ({}));
+      throw new Error(data.error || 'Something went wrong');
+    }
+  } catch (err) {
+    status.textContent = err.message || 'Failed to send. Try emailing me directly.';
+    status.className = 'contact-form-status error';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Send Message';
+  }
+});
+
+// ═══ SNAKE GAME ═══
+(function() {
+  const trigger = document.getElementById('snakeTrigger');
+  const overlay = document.getElementById('snakeOverlay');
+  const closeBtn = document.getElementById('snakeClose');
+  const canvas = document.getElementById('snake-canvas');
+  const ctx = canvas.getContext('2d');
+  const scoreEl = document.getElementById('snakeScore');
+  const bestEl = document.getElementById('snakeBest');
+  const isMobile = window.innerWidth <= 768;
+
+  // Responsive canvas — 400 on desktop, fit screen on mobile
+  const size = isMobile ? Math.min(window.innerWidth - 48, 320) : 400;
+  canvas.width = size;
+  canvas.height = size;
+  canvas.style.width = size + 'px';
+  canvas.style.height = size + 'px';
+
+  const CELLS = 20;
+  const GRID = size / CELLS;
+  let snake, dir, dirQueue, food, score, best, running, gameOver, speed, lastTick, raf;
+
+  best = parseInt(localStorage.getItem('snakeBest') || '0');
+  bestEl.textContent = best;
+
+  function reset() {
+    const mid = Math.floor(CELLS / 2);
+    snake = [{ x: mid, y: mid }, { x: mid - 1, y: mid }, { x: mid - 2, y: mid }];
+    dir = { x: 1, y: 0 };
+    dirQueue = [];
+    score = 0;
+    speed = isMobile ? 120 : 100;
+    gameOver = false;
+    running = false;
+    lastTick = 0;
+    scoreEl.textContent = '0';
+    placeFood();
+  }
+
+  function placeFood() {
+    let pos;
+    do {
+      pos = { x: Math.floor(Math.random() * CELLS), y: Math.floor(Math.random() * CELLS) };
+    } while (snake.some(s => s.x === pos.x && s.y === pos.y));
+    food = pos;
+  }
+
+  function drawCell(x, y, color, glow) {
+    const pad = 1;
+    ctx.fillStyle = color;
+    if (glow) {
+      ctx.shadowColor = glow;
+      ctx.shadowBlur = 8;
+    }
+    ctx.beginPath();
+    ctx.roundRect(x * GRID + pad, y * GRID + pad, GRID - pad * 2, GRID - pad * 2, 3);
+    ctx.fill();
+    ctx.shadowBlur = 0;
+  }
+
+  function draw() {
+    ctx.fillStyle = '#0a0a0a';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.strokeStyle = 'rgba(118, 185, 0, 0.04)';
+    ctx.lineWidth = 0.5;
+    for (let i = 0; i <= CELLS; i++) {
+      ctx.beginPath();
+      ctx.moveTo(i * GRID, 0);
+      ctx.lineTo(i * GRID, canvas.height);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(0, i * GRID);
+      ctx.lineTo(canvas.width, i * GRID);
+      ctx.stroke();
+    }
+
+    drawCell(food.x, food.y, '#00d4aa', 'rgba(0, 212, 170, 0.5)');
+
+    snake.forEach((seg, i) => {
+      const t = i / snake.length;
+      const r = Math.round(118 - t * 60);
+      const g = Math.round(185 - t * 40);
+      const glow = i === 0 ? 'rgba(118, 185, 0, 0.4)' : null;
+      drawCell(seg.x, seg.y, `rgb(${r}, ${g}, 0)`, glow);
+    });
+
+    if (!running) {
+      ctx.fillStyle = 'rgba(5, 5, 5, 0.7)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      const fontSize = isMobile ? 12 : 14;
+      ctx.font = `600 ${fontSize}px "JetBrains Mono", monospace`;
+      ctx.textAlign = 'center';
+      ctx.fillStyle = '#76B900';
+      if (gameOver) {
+        ctx.fillText('Game Over — Score: ' + score, canvas.width / 2, canvas.height / 2 - 12);
+        ctx.font = `${isMobile ? 10 : 11}px "JetBrains Mono", monospace`;
+        ctx.fillStyle = '#888';
+        ctx.fillText(isMobile ? 'Tap ▲ to restart' : 'Press an arrow key to restart', canvas.width / 2, canvas.height / 2 + 16);
+        ctx.fillText(isMobile ? '' : '← ↑ ↓ →', canvas.width / 2, canvas.height / 2 + 36);
+      } else {
+        ctx.fillText(isMobile ? 'Tap ▲ to start' : 'Press an arrow key to start', canvas.width / 2, canvas.height / 2 - 8);
+        ctx.fillText(isMobile ? '' : '← ↑ ↓ →', canvas.width / 2, canvas.height / 2 + 16);
+      }
+    }
+  }
+
+  function gameLoop(timestamp) {
+    if (!running) return;
+
+    if (timestamp - lastTick >= speed) {
+      lastTick = timestamp;
+
+      // Process one queued direction per tick
+      while (dirQueue.length > 0) {
+        const next = dirQueue.shift();
+        // Only apply if it's not reversing into ourselves
+        if (next.x !== -dir.x || next.y !== -dir.y) {
+          dir = next;
+          break;
+        }
+      }
+
+      const head = { x: snake[0].x + dir.x, y: snake[0].y + dir.y };
+
+      if (head.x < 0) head.x = CELLS - 1;
+      if (head.x >= CELLS) head.x = 0;
+      if (head.y < 0) head.y = CELLS - 1;
+      if (head.y >= CELLS) head.y = 0;
+
+      if (snake.some(s => s.x === head.x && s.y === head.y)) {
+        running = false;
+        gameOver = true;
+        if (score > best) {
+          best = score;
+          bestEl.textContent = best;
+          localStorage.setItem('snakeBest', best);
+        }
+        if (window.gameScore) window.gameScore('snake');
+        draw();
+        return;
+      }
+
+      snake.unshift(head);
+
+      if (head.x === food.x && head.y === food.y) {
+        score++;
+        scoreEl.textContent = score;
+        placeFood();
+        speed = Math.max(isMobile ? 65 : 50, speed - 1.2);
+      } else {
+        snake.pop();
+      }
+
+      draw();
+    }
+
+    raf = requestAnimationFrame(gameLoop);
+  }
+
+  function startGame() {
+    if (gameOver) reset();
+    running = true;
+    gameOver = false;
+    dirQueue = [];
+    lastTick = performance.now();
+    raf = requestAnimationFrame(gameLoop);
+  }
+
+  function queueDir(newDir) {
+    // Use the last queued direction (or current dir) to validate
+    const ref = dirQueue.length > 0 ? dirQueue[dirQueue.length - 1] : dir;
+    if (newDir.x === -ref.x && newDir.y === -ref.y) return; // can't reverse
+    if (newDir.x === ref.x && newDir.y === ref.y) return; // same direction
+    dirQueue.push(newDir);
+    // Cap queue at 3 to prevent input flooding
+    if (dirQueue.length > 3) dirQueue.shift();
+  }
+
+  function changeDir(direction) {
+    if (!running) { startGame(); return; }
+    switch (direction) {
+      case 'up':    queueDir({ x: 0, y: -1 }); break;
+      case 'down':  queueDir({ x: 0, y: 1 }); break;
+      case 'left':  queueDir({ x: -1, y: 0 }); break;
+      case 'right': queueDir({ x: 1, y: 0 }); break;
+    }
+  }
+
+  function handleKey(e) {
+    if (!overlay.classList.contains('open')) return;
+
+    if (e.key === 'Escape') { closeGame(); return; }
+
+    const validKeys = ['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','w','W','a','A','s','S','d','D'];
+    if (!validKeys.includes(e.key)) return;
+    e.preventDefault();
+
+    switch (e.key) {
+      case 'ArrowUp': case 'w': case 'W': changeDir('up'); break;
+      case 'ArrowDown': case 's': case 'S': changeDir('down'); break;
+      case 'ArrowLeft': case 'a': case 'A': changeDir('left'); break;
+      case 'ArrowRight': case 'd': case 'D': changeDir('right'); break;
+    }
+  }
+
+  // Touch d-pad buttons
+  document.querySelectorAll('.snake-touch-btn').forEach(btn => {
+    btn.addEventListener('touchstart', e => {
+      e.preventDefault();
+      changeDir(btn.dataset.dir);
+    }, { passive: false });
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      changeDir(btn.dataset.dir);
+    });
+  });
+
+  // Swipe detection on canvas
+  let touchStartX = 0, touchStartY = 0;
+  canvas.addEventListener('touchstart', e => {
+    e.preventDefault();
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+    if (!running) startGame();
+  }, { passive: false });
+
+  canvas.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    const dy = e.changedTouches[0].clientY - touchStartY;
+    const absDx = Math.abs(dx);
+    const absDy = Math.abs(dy);
+    if (Math.max(absDx, absDy) < 20) return; // too small, ignore
+    if (absDx > absDy) {
+      changeDir(dx > 0 ? 'right' : 'left');
+    } else {
+      changeDir(dy > 0 ? 'down' : 'up');
+    }
+  }, { passive: false });
+
+  function openGame() {
+    overlay.classList.add('open');
+    reset();
+    draw();
+    document.addEventListener('keydown', handleKey);
+  }
+
+  function closeGame() {
+    overlay.classList.remove('open');
+    running = false;
+    cancelAnimationFrame(raf);
+    document.removeEventListener('keydown', handleKey);
+  }
+
+  trigger.addEventListener('click', openGame);
+  closeBtn.addEventListener('click', closeGame);
+  overlay.addEventListener('click', e => {
+    if (e.target === overlay) closeGame();
+  });
+})();
+
+// ═══ EXPLORER XP GAME (desktop only) ═══
+(function() {
+  if (window.innerWidth <= 768) return;
+
+  const widget = document.getElementById('score-widget');
+  const scoreEl = document.getElementById('scoreValue');
+  const rankEl = document.getElementById('scoreRank');
+  const barFill = document.getElementById('scoreBarFill');
+  const box = document.getElementById('scoreBox');
+
+  let score = 0;
+  let displayScore = 0;
+  const awarded = new Set();
+
+  const ranks = [
+    { min: 0,   name: 'Pretty Cool',    max: 100 },
+    { min: 100, name: 'Very Cool',       max: 300 },
+    { min: 300, name: 'Mega Cool',       max: 600 },
+    { min: 600, name: '2cool4school',    max: 1000 }
+  ];
+
+  function getRank() {
+    for (let i = ranks.length - 1; i >= 0; i--) {
+      if (score >= ranks[i].min) return ranks[i];
+    }
+    return ranks[0];
+  }
+
+  function popup(text, points) {
+    const el = document.createElement('div');
+    el.className = 'score-popup';
+    el.textContent = `+${points}  ${text}`;
+    widget.insertBefore(el, widget.firstChild);
+    setTimeout(() => el.remove(), 1900);
+  }
+
+  function pulse() {
+    box.classList.add('pulse');
+    setTimeout(() => box.classList.remove('pulse'), 600);
+  }
+
+  function animateScore() {
+    if (displayScore < score) {
+      displayScore += Math.max(1, Math.ceil((score - displayScore) * 0.15));
+      if (displayScore > score) displayScore = score;
+      scoreEl.textContent = displayScore;
+    }
+    const rank = getRank();
+    rankEl.textContent = 'Rank: ' + rank.name;
+    const progress = rank.max > rank.min
+      ? (Math.min(score, rank.max) - rank.min) / (rank.max - rank.min) * 100
+      : 100;
+    barFill.style.width = progress + '%';
+    requestAnimationFrame(animateScore);
+  }
+  requestAnimationFrame(animateScore);
+
+  function award(id, points, text) {
+    if (awarded.has(id)) return;
+    awarded.add(id);
+    score += points;
+    popup(text, points);
+    pulse();
+  }
+
+  // Section scroll scoring
+  const sections = [
+    { id: 'about',      points: 15, text: 'Read the bio' },
+    { id: 'experience', points: 20, text: 'Checked experience' },
+    { id: 'projects',   points: 25, text: 'Viewed projects' },
+    { id: 'stack',      points: 15, text: 'Saw the stack' },
+    { id: 'case-studies', points: 25, text: 'Read case studies' },
+    { id: 'writing',     points: 15, text: 'Found the blog' },
+    { id: 'contact',    points: 50, text: 'Reached contact!' }
+  ];
+
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const s = sections.find(s => s.id === entry.target.id);
+      if (s) award('section-' + s.id, s.points, s.text);
+    });
+  }, { threshold: 0.3 });
+
+  sections.forEach(s => {
+    const el = document.getElementById(s.id);
+    if (el) sectionObserver.observe(el);
+  });
+
+  // Project card clicks
+  document.querySelectorAll('.project-card').forEach((card, i) => {
+    card.addEventListener('click', () => {
+      award('project-click-' + i, 10, 'Explored a project');
+    });
+  });
+
+  // Contact item clicks (email, phone, github, linkedin)
+  document.querySelectorAll('#contact .contact-item').forEach((item, i) => {
+    item.addEventListener('click', () => {
+      award('contact-item-' + i, 30, 'Used contact info');
+    });
+  });
+
+  // Time on site bonuses
+  setTimeout(() => award('time-30', 15, 'Still here?'), 30000);
+  setTimeout(() => award('time-60', 25, 'Loyal visitor'), 60000);
+  setTimeout(() => award('time-180', 50, 'Dedicated explorer'), 180000);
+
+  // Scroll depth milestones
+  let maxScroll = 0;
+  window.addEventListener('scroll', () => {
+    const pct = (window.scrollY + window.innerHeight) / document.body.scrollHeight * 100;
+    if (pct > maxScroll) maxScroll = pct;
+    if (maxScroll > 25) award('scroll-25', 5, 'Scrolled 25%');
+    if (maxScroll > 50) award('scroll-50', 10, 'Halfway there');
+    if (maxScroll > 75) award('scroll-75', 15, 'Almost done');
+    if (maxScroll > 95) award('scroll-100', 25, 'Saw everything!');
+  });
+
+  // External score hooks
+  window.gameScore = function(type) {
+    if (type === 'message') {
+      score = 1000;
+      awarded.add('message-sent');
+      popup('Max coolness unlocked!', '★');
+      pulse();
+    }
+    if (type === 'snake') {
+      award('snake-played', 30, 'Played Snake');
+    }
+  };
+
+  // Easter egg: click the score widget itself
+  let widgetClicks = 0;
+  box.addEventListener('click', () => {
+    widgetClicks++;
+    if (widgetClicks === 5) award('widget-click', 50, 'Found the easter egg');
+    if (widgetClicks === 15) award('widget-obsessed', 100, 'Okay you really like clicking');
+  });
+})();
+</script>
+
+<script>
+// ═══ GA4 CUSTOM EVENT TRACKING ═══
+(function() {
+  if (typeof gtag !== 'function') return;
+
+  // Track nav link clicks
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      gtag('event', 'nav_click', {
+        link_text: link.textContent.trim(),
+        link_url: link.getAttribute('href')
+      });
+    });
+  });
+
+  // Track project link clicks (Visit Live Site / GitHub)
+  document.querySelectorAll('.project-link').forEach(link => {
+    link.addEventListener('click', () => {
+      const card = link.closest('.project-card');
+      const name = card ? card.querySelector('.project-name')?.textContent : 'unknown';
+      gtag('event', 'project_click', {
+        project_name: name,
+        link_url: link.getAttribute('href')
+      });
+    });
+  });
+
+  // Track project card views (when scrolled into view)
+  const projectObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const name = entry.target.querySelector('.project-name')?.textContent;
+        if (name) {
+          gtag('event', 'project_view', { project_name: name });
+        }
+        projectObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.project-card').forEach(card => projectObserver.observe(card));
+
+  // Track section views
+  const sectionObserverGA = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        gtag('event', 'section_view', { section_name: entry.target.id });
+        sectionObserverGA.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('section[id]').forEach(s => sectionObserverGA.observe(s));
+
+  // Track contact form submission
+  const form = document.getElementById('contactForm');
+  if (form) {
+    form.addEventListener('submit', () => {
+      gtag('event', 'contact_form_submit');
+    });
+  }
+
+  // Track contact info clicks (email, phone, github, linkedin)
+  document.querySelectorAll('#contact a.contact-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const label = item.querySelector('.contact-item-label')?.textContent;
+      gtag('event', 'contact_info_click', { contact_type: label });
+    });
+  });
+
+  // Track scroll depth milestones
+  let maxScrollGA = 0;
+  const milestones = [25, 50, 75, 90];
+  const firedMilestones = new Set();
+  window.addEventListener('scroll', () => {
+    const pct = Math.round((window.scrollY + window.innerHeight) / document.body.scrollHeight * 100);
+    if (pct > maxScrollGA) maxScrollGA = pct;
+    milestones.forEach(m => {
+      if (maxScrollGA >= m && !firedMilestones.has(m)) {
+        firedMilestones.add(m);
+        gtag('event', 'scroll_depth', { percent: m });
+      }
+    });
+  }, { passive: true });
+
+  // Track CTA / "Available for Opportunities" clicks
+  const availBadge = document.querySelector('.nav-available');
+  if (availBadge) {
+    availBadge.addEventListener('click', () => {
+      gtag('event', 'cta_click', { cta_name: 'available_badge' });
+    });
+  }
+
+  // Track snake game opens
+  const snakeTrigger = document.getElementById('snakeTrigger');
+  if (snakeTrigger) {
+    snakeTrigger.addEventListener('click', () => {
+      gtag('event', 'snake_game_open');
+    });
+  }
+})();
+</script>
+
+<script defer src="/_vercel/insights/script.js"></script>
+
+</body>
+</html>
