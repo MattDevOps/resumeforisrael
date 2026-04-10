@@ -13,13 +13,13 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --green: #76B900;
-  --green-dim: #4a7a00;
-  --green-glow: rgba(118, 185, 0, 0.3);
-  --cyan: #00d4aa;
+  --green: #4169E1;
+  --green-dim: #2B4799;
+  --green-glow: rgba(65, 105, 225, 0.3);
+  --cyan: #60A5FA;
   --bg-deep: #050505;
   --border: rgba(255,255,255,0.06);
-  --border-hover: rgba(118, 185, 0, 0.3);
+  --border-hover: rgba(65, 105, 225, 0.3);
   --text: #e8e8e8;
   --text-dim: #888;
 }
@@ -66,7 +66,7 @@ body::before {
   font-size: clamp(8rem, 20vw, 14rem);
   line-height: 1;
   color: var(--text);
-  text-shadow: 0 0 60px var(--green-glow), 0 0 120px rgba(118, 185, 0, 0.1);
+  text-shadow: 0 0 60px var(--green-glow), 0 0 120px rgba(65, 105, 225, 0.1);
   margin-bottom: 1.5rem;
   user-select: none;
 }
@@ -98,7 +98,7 @@ body::before {
 
 .back-link:hover {
   border-color: var(--green);
-  box-shadow: 0 0 20px rgba(118, 185, 0, 0.15), inset 0 0 20px rgba(118, 185, 0, 0.03);
+  box-shadow: 0 0 20px rgba(65, 105, 225, 0.15), inset 0 0 20px rgba(65, 105, 225, 0.03);
   color: #fff;
 }
 
@@ -115,7 +115,7 @@ body::before {
   transform: translate(-50%, -60%);
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(118, 185, 0, 0.06) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(65, 105, 225, 0.06) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }

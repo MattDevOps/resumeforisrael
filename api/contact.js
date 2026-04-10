@@ -40,15 +40,15 @@ module.exports = async function handler(req, res) {
 
   try {
     await resend.emails.send({
-      from: 'Matt Hasson Portfolio <contact@matthasson.com>',
+      from: 'Matt Hasson Portfolio <contact@matthewjhasson.com>',
       to: 'matthew.hasson93@gmail.com',
       replyTo: email,
-      subject: subject ? `[matthasson.com] ${subject}` : `[matthasson.com] New message from ${name}`,
-      text: `New contact form submission from matthasson.com\n\nFrom: ${name} (${email})\nSubject: ${subject || '(none)'}\n\n${message}`,
+      subject: subject ? `[matthewjhasson.com] ${subject}` : `[matthewjhasson.com] New message from ${name}`,
+      text: `New contact form submission from matthewjhasson.com\n\nFrom: ${name} (${email})\nSubject: ${subject || '(none)'}\n\n${message}`,
       html: `
         <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; background: #ffffff;">
           <div style="background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%); padding: 24px 32px; border-radius: 8px 8px 0 0;">
-            <h1 style="color: #ffffff; margin: 0; font-size: 18px; font-weight: 600; letter-spacing: 0.5px;">matthasson.com</h1>
+            <h1 style="color: #ffffff; margin: 0; font-size: 18px; font-weight: 600; letter-spacing: 0.5px;">matthewjhasson.com</h1>
             <p style="color: #8888aa; margin: 4px 0 0; font-size: 13px;">New contact form submission</p>
           </div>
           <div style="padding: 28px 32px; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 8px 8px;">
@@ -71,7 +71,7 @@ module.exports = async function handler(req, res) {
               <div style="background: #f9fafb; border-radius: 6px; padding: 16px; white-space: pre-wrap; color: #374151; font-size: 14px; line-height: 1.6;">${escapeHtml(message)}</div>
             </div>
           </div>
-          <p style="text-align: center; color: #9ca3af; font-size: 11px; margin-top: 16px;">Sent via contact form on matthasson.com</p>
+          <p style="text-align: center; color: #9ca3af; font-size: 11px; margin-top: 16px;">Sent via contact form on matthewjhasson.com</p>
         </div>
       `
     });
