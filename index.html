@@ -13,15 +13,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#050505">
 <title>Matt Hasson — Engineering Leader & AI-Augmented Builder</title>
-<meta name="description" content="Portfolio of Matt Hasson — Full-stack engineer shipping production apps at 10x speed with AI augmentation. 8 production projects. From mobile to infra.">
+<meta name="description" content="Portfolio of Matt Hasson — Full-stack engineer shipping production apps at 10x speed with AI augmentation. 9 production projects. From mobile to infra.">
 <meta property="og:title" content="Matt Hasson — Engineering Leader & AI-Augmented Builder">
-<meta property="og:description" content="8 production projects. AI-augmented development. From mobile to infrastructure.">
+<meta property="og:description" content="9 production projects. AI-augmented development. From mobile to infrastructure.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://matthewjhasson.com">
 <meta property="og:image" content="https://matthewjhasson.com/og-image.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Matt Hasson — Engineering Leader & AI-Augmented Builder">
-<meta name="twitter:description" content="8 production projects. AI-augmented development. From mobile to infrastructure.">
+<meta name="twitter:description" content="9 production projects. AI-augmented development. From mobile to infrastructure.">
 <link rel="canonical" href="https://matthewjhasson.com">
 <script type="application/ld+json">
 {
@@ -1718,9 +1718,9 @@ footer {
     </div>
     <div class="about-grid">
       <div class="about-text reveal reveal-delay-1">
-        <p>I spent 4 years at Sonos building CI/CD infrastructure, then started Hasson, Inc. to build and ship my own products. I've shipped 8 production apps since — all live, most with paying users or real clients.</p>
+        <p>I spent 4 years at Sonos building CI/CD infrastructure, then started Hasson, Inc. to build and ship my own products. I've shipped 9 production apps since — all live, most with paying users or real clients.</p>
         <br>
-        <p>Then I left to build my own things. I've shipped 8 production apps since — all solo, all live, most with paying users or real clients. I'm not precious about the stack; I pick whatever ships the product. I use AI as a force multiplier across every phase of development, and it's a core part of how I operate at the speed I do.</p>
+        <p>Then I left to build my own things. I've shipped 9 production apps since — all solo, all live, most with paying users or real clients. I'm not precious about the stack; I pick whatever ships the product. I use AI as a force multiplier across every phase of development, and it's a core part of how I operate at the speed I do.</p>
       </div>
       <div class="about-metrics reveal reveal-delay-2">
         <div class="about-metric">
@@ -2083,6 +2083,46 @@ footer {
           </a>
         </div>
       </div>
+      <!-- Classic Jerusalem Realty -->
+      <div class="project-card reveal reveal-delay-1">
+        <div class="project-visual">
+          <div class="carousel-container" data-carousel>
+            <div class="carousel-slide active"><img src="screenshots/classic-jerusalem-admin.png" alt="Classic Jerusalem Realty Admin" loading="lazy"></div>
+            <button class="carousel-nav prev" aria-label="Previous">‹</button>
+            <button class="carousel-nav next" aria-label="Next">›</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active" data-slide="0"></button>
+            </div>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-num">09</div>
+          <h3 class="project-name">Classic Jerusalem Realty</h3>
+          <div class="project-tagline">Real Estate Brokerage Automation Platform</div>
+          <p class="project-desc">Full-stack operations system for a Jerusalem real-estate brokerage. Property CMS with Yad2/Madlan listing import, Google Drive photo storage via OAuth, contact CRM, listing distribution queue, and a WordPress plugin that renders live listings on the public site. Built end-to-end for a non-technical solo broker — designed, deployed, and gated behind email-PIN auth in a single shipping push.</p>
+          <div class="project-highlights">Yad2 scraper · Hybrid WordPress + SPA · Cloudflare Access gating · WIF-deployed CI/CD</div>
+          <div class="project-tech">
+            <span class="tech-pill">FastAPI</span>
+            <span class="tech-pill">Python</span>
+            <span class="tech-pill">React 19</span>
+            <span class="tech-pill">Vite</span>
+            <span class="tech-pill">Supabase</span>
+            <span class="tech-pill">Alembic</span>
+            <span class="tech-pill">Cloud Run</span>
+            <span class="tech-pill">Cloudflare Pages</span>
+            <span class="tech-pill">Cloudflare Workers</span>
+            <span class="tech-pill">Cloudflare Access</span>
+            <span class="tech-pill">WordPress / PHP</span>
+            <span class="tech-pill">Google OAuth</span>
+            <span class="tech-pill">GitHub Actions</span>
+            <span class="tech-pill">Workload Identity</span>
+          </div>
+          <a href="https://admin.classicjerusalem.com" target="_blank" rel="noopener" class="project-link">
+            Visit Live Site
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -2103,6 +2143,7 @@ footer {
         <div class="stack-items">
           <div class="stack-item">React / React Native</div>
           <div class="stack-item">Next.js</div>
+          <div class="stack-item">Vite</div>
           <div class="stack-item">Expo</div>
           <div class="stack-item">TypeScript</div>
           <div class="stack-item">Tailwind CSS</div>
@@ -2119,7 +2160,9 @@ footer {
           <div class="stack-item">Node.js</div>
           <div class="stack-item">Prisma</div>
           <div class="stack-item">SQLAlchemy</div>
+          <div class="stack-item">Alembic</div>
           <div class="stack-item">WebSockets</div>
+          <div class="stack-item">WordPress / PHP</div>
         </div>
       </div>
       <div class="stack-category reveal reveal-delay-3">
@@ -2148,11 +2191,14 @@ footer {
         <div class="stack-category-name">Infrastructure</div>
         <div class="stack-items">
           <div class="stack-item">AWS</div>
+          <div class="stack-item">Google Cloud Run</div>
+          <div class="stack-item">Cloudflare (Pages / Workers / Access)</div>
           <div class="stack-item">Vercel</div>
           <div class="stack-item">Fly.io</div>
           <div class="stack-item">Railway</div>
           <div class="stack-item">Docker</div>
           <div class="stack-item">GitHub Actions</div>
+          <div class="stack-item">Workload Identity Federation</div>
           <div class="stack-item">Microservices</div>
         </div>
       </div>
@@ -2334,7 +2380,7 @@ footer {
       <div class="writing-card reveal reveal-delay-1">
         <div class="writing-card-tag">AI Engineering</div>
         <h3 class="writing-card-title">The Real AI-Augmented Workflow</h3>
-        <p class="writing-card-excerpt">Everyone says they use AI to code. Here's what it actually looks like across 8 production launches — the parts that work, the parts that don't, and why engineering judgment still matters more than prompt quality.</p>
+        <p class="writing-card-excerpt">Everyone says they use AI to code. Here's what it actually looks like across 9 production launches — the parts that work, the parts that don't, and why engineering judgment still matters more than prompt quality.</p>
         <div class="writing-card-date">Coming Soon</div>
       </div>
 
@@ -2348,7 +2394,7 @@ footer {
       <div class="writing-card reveal reveal-delay-3">
         <div class="writing-card-tag">Architecture</div>
         <h3 class="writing-card-title">Why I Keep Choosing FastAPI + Next.js</h3>
-        <p class="writing-card-excerpt">After shipping 8 apps across different stacks, I keep coming back to the same core combo. Not because it's trendy — because it lets a solo developer move at the speed of a small team.</p>
+        <p class="writing-card-excerpt">After shipping 9 apps across different stacks, I keep coming back to the same core combo. Not because it's trendy — because it lets a solo developer move at the speed of a small team.</p>
         <div class="writing-card-date">Coming Soon</div>
       </div>
     </div>
